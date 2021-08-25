@@ -1,14 +1,14 @@
 Printed: 2021-08-25, Wednesday
 
-Workout length: 33.0 mins 
-Sets: 6 
-Reps: 13 
-Rest: 30 seconds 
+Workout length: 35.0 mins 
+Sets: 5 
+Reps: 14 
+Rest: 90 seconds 
  
-ruck shoulder raise
-leg raise
 2 pump burpee
-navy seal
-lunge
+flutter kick
+ruck squat
 
-Set checkbox [] [] [] [] [] [] 
+Set checkbox [] [] [] [] [] 
+
+Cardio: heavy ruck, 12.0 mins
