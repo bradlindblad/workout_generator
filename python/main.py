@@ -1,25 +1,23 @@
-
-import click
 from datetime import datetime
 import os
 import pandas as pd
 from prompt_toolkit import prompt
 import random
 
-opt = pd.read_csv("options.csv")
+HOME = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
+opt = pd.read_csv(os.path.join(HOME, "python", "options.csv"))
 
 
-
-LENGTH = int(prompt(u'Enter workout length in mins: '))
+LENGTH = int(prompt("Enter workout length in mins: "))
 LENGTH = LENGTH * 60
 
-CARDIO = prompt(u'Cardio? (y/n) ')
+CARDIO = prompt("Cardio? (y/n) ")
 CARDIO = CARDIO.upper()
 # CARDIO = "Y"
-OUTPUT_LOC = "."
-OUTPUT_LOC = prompt(u'Output location (default: repo): ')
+OUTPUT_LOC = os.path.join(HOME, "workout.txt")
+OUTPUT_LOC = prompt("Output location (default: repo): ")
 
 # Functions ------------------------------------
 
@@ -33,20 +31,23 @@ def create_cardio(opt):
     # get random
     cardio = selection.sample(1).name.values[0]
 
-    return(cardio)
+    return cardio
+
 
 def get_rest():
     """
     Returns rest interval.
     """
     r = [30, 60, 90, 120]
-    return(random.sample(r, 1))
+    return random.sample(r, 1)
+
 
 def get_reps():
     """
     Get random rep count
     """
-    return(random.sample(range(5,15,1), 1))
+    return random.sample(range(5, 15, 1), 1)
+
 
 # Begin logic ----------------------------------
 
@@ -58,11 +59,11 @@ if CARDIO.upper() == "Y":
 # Est. number of sets based on length of workout
 sets = 0
 if LENGTH < 20:
-    sets = random.sample(range(3,5,1) ,1)[0]
+    sets = random.sample(range(3, 5, 1), 1)[0]
 if LENGTH >= 20 and LENGTH < 30:
-    sets = random.sample(range(4,6,1) ,1)[0]
+    sets = random.sample(range(4, 6, 1), 1)[0]
 if LENGTH >= 30:
-    sets = random.sample(range(5,7,1) ,1)[0]
+    sets = random.sample(range(5, 7, 1), 1)[0]
 
 # Est rest between sets
 rest = get_rest()[0]
@@ -70,27 +71,24 @@ rest = get_rest()[0]
 # Calc work time
 
 if CARDIO.upper() == "N":
-    work_time = LENGTH - (rest * (sets-1))
+    work_time = LENGTH - (rest * (sets - 1))
 elif CARDIO.upper() == "Y":
-    work_time = LENGTH - (rest * (sets-1)) - c_time
+    work_time = LENGTH - (rest * (sets - 1)) - c_time
 
 # Get number reps per exercise
 reps = get_reps()[0]
 
 # Get number exercises to randomly grab
-move_time = reps * 5 # figure 5 seconds per rep on average
+move_time = reps * 5  # figure 5 seconds per rep on average
 
-n_exercises_to_grab = round(round(work_time / move_time, 0)/sets, 0)
+n_exercises_to_grab = round(round(work_time / move_time, 0) / sets, 0)
 
-# 1. ABS FIRST
+# Create empty list to append chosen exercises to
 exercises = []
-
-# ab1 = opt[opt.ab == 1].sample(1).name.values[0]
-# exercises.append(ab1)
 
 pool = opt[opt.cardio != 1]
 
-# 2. THE REST
+# Get random exercises
 other_ex = pool.sample(int(n_exercises_to_grab))
 l = len(other_ex)
 more_to_append = list(other_ex.name.values[0:l])
@@ -99,8 +97,7 @@ for i in more_to_append:
     exercises.append(i)
 
 
-
-# PRINT ------------
+# PRINT Debug------------
 # exercises
 
 # print(f"{LENGTH} desired workout")
@@ -114,11 +111,16 @@ for i in more_to_append:
 
 # WRITE TO TXT
 
-# write_here = OUTPUT_LOC + "workout.txt"
 write_here = os.path.join(OUTPUT_LOC, "workout.txt")
 
 with open(write_here, "w") as f:
-    f.write("Printed: " + datetime.today().strftime('%Y-%m-%d') + ", " + datetime.today().strftime('%A') + "\n\n")
+    f.write(
+        "Printed: "
+        + datetime.today().strftime("%Y-%m-%d")
+        + ", "
+        + datetime.today().strftime("%A")
+        + "\n\n"
+    )
     f.write(f"Workout length: {LENGTH/60} mins \n")
     f.write(f"Sets: {sets} \nReps: {reps} \nRest: {rest} seconds \n \n")
     for i in exercises:
@@ -131,4 +133,4 @@ with open(write_here, "w") as f:
 
     f.close()
 
-print("output.txt written to root.")
+print(f"workout.txt written to {write_here}.")
