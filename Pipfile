@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pandas = "*"
 pyinquirer = "*"
+prompt-toolkit = "*"
 
 [dev-packages]
 ipykernel = "*"
