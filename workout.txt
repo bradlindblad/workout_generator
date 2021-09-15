@@ -1,13 +1,15 @@
-Printed: 2021-08-27, Friday
+Printed: 2021-09-15, Wednesday
 
-Workout length: 22.0 mins 
-Sets: 5 
-Reps: 10 
-Rest: 60 seconds 
+Workout length: 45.0 mins 
+Sets: 8 
+Reps: 6 
+Rest: 120 seconds 
  
-flutter kick
-3 pump burpee
-oblique crunch
-mountain climber
+ruck military press
+squat
+ruck shoulder raise
+superman
 
-Set checkbox [] [] [] [] [] 
+Set checkbox [] [] [] [] [] [] [] [] 
+
+Cardio: heavy ruck, 22.0 mins
