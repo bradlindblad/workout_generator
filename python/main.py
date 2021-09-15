@@ -54,16 +54,16 @@ def get_reps():
 # Est cardio
 if CARDIO.upper() == "Y":
     c = create_cardio(opt)
-    c_time = round(LENGTH * 0.33, 0)
+    c_time = round(LENGTH * 0.5, 0)
 
 # Est. number of sets based on length of workout
 sets = 0
 if LENGTH < 20:
-    sets = random.sample(range(3, 5, 1), 1)[0]
+    sets = random.sample(range(3, 7, 1), 1)[0]
 if LENGTH >= 20 and LENGTH < 30:
-    sets = random.sample(range(4, 6, 1), 1)[0]
+    sets = random.sample(range(4, 8, 1), 1)[0]
 if LENGTH >= 30:
-    sets = random.sample(range(5, 7, 1), 1)[0]
+    sets = random.sample(range(5, 9, 1), 1)[0]
 
 # Est rest between sets
 rest = get_rest()[0]
@@ -79,7 +79,7 @@ elif CARDIO.upper() == "Y":
 reps = get_reps()[0]
 
 # Get number exercises to randomly grab
-move_time = reps * 5  # figure 5 seconds per rep on average
+move_time = reps * 3  # figure 5 seconds per rep on average
 
 n_exercises_to_grab = round(round(work_time / move_time, 0) / sets, 0)
 
