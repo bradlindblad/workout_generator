@@ -108,7 +108,12 @@ for i in more_to_append:
 # # print(f"{c} cardio duration: {c_time}")
 # work_time/60
 
+# Establish n sets to print out
+sets_print = sets + 1
+set_range = list(range(sets_print))
+set_range.pop(0) # remove the 0
 
+print(f"There are {sets} sets??")
 # WRITE TO TXT
 
 write_here = os.path.join(OUTPUT_LOC, "workout.txt")
@@ -126,11 +131,12 @@ with open(write_here, "w") as f:
     for i in exercises:
         f.write(i + "\n")
     f.write("\nSet checkbox ")
-    for i in range(sets):
-        f.write("[] ")
+    for i in set_range:
+        f.write(f"[{i}] ")
     if CARDIO.upper() == "Y":
         f.write(f"\n\nCardio: {c}, {round(c_time / 60, 0)} mins")
 
     f.close()
 
 print(f"workout.txt written to {write_here}.")
+
