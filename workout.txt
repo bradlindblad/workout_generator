@@ -1,15 +1,22 @@
 Printed: 2021-09-15, Wednesday
 
-Workout length: 45.0 mins 
-Sets: 8 
-Reps: 6 
-Rest: 120 seconds 
+Workout length: 25.0 mins 
+Sets: 6 
+Reps: 5 
+Rest: 60 seconds 
  
-ruck military press
-squat
-ruck shoulder raise
 superman
+flutter kick
+ruck shoulder raise
+lunge
+2 pump burpee
+situp
+leg raise
+Push-up
+plank
+toe touchers
+1 pump burpee
+mountain climber
+navy seal
 
-Set checkbox [] [] [] [] [] [] [] [] 
-
-Cardio: heavy ruck, 22.0 mins
+Set checkbox [] [] [] [] [] [] 

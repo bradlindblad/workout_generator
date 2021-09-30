@@ -23,18 +23,19 @@ It samples random exercises from python/options.csv, which you can modify for mo
 # Example workout
 
 ```
-Printed: 2021-08-25, Wednesday
+Printed: 2021-09-20, Monday
 
-Workout length: 35.0 mins 
-Sets: 5 
-Reps: 14 
+Workout length: 18.0 mins 
+Sets: 6 
+Reps: 6 
 Rest: 90 seconds 
  
-2 pump burpee
-flutter kick
-ruck squat
+ruck military press
+navy seal
+ruck push up
+3 pump burpee
+Push-up
+ruck shoulder raise
 
-Set checkbox [] [] [] [] [] 
-
-Cardio: heavy ruck, 12.0 mins
+Set checkbox [1] [2] [3] [4] [5] [6] 
 ```
